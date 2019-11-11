@@ -39,20 +39,23 @@ class Favorite extends StatelessWidget {
                 leading: CircleAvatar(
                   backgroundColor: Colors.primaries[index],
                 ),
+                trailing: IconButton(icon: Icon(Icons.close,color: Colors.black,), onPressed: (){
+                  item_provider.removeFav(index);
+                }),
               ),
               itemCount: item_provider.favorites().length,
             ),
           ),
           Container(
-            height: 4,
-            color: Colors.black,
+            height: 112,
+            color: Colors.yellow,
+              child: Center(
+                child: Text(
+                  'Count of Contact : ' + item_provider.favorites().length.toString(),
+                  style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                ),
+              )
           ),
-          SizedBox(height: 35,),
-          Center(
-              child: Text(
-            'Count of Contact : ' + item_provider.favorites().length.toString(),
-            style: TextStyle(fontSize: 20),
-          )),
         ],
       ),
     );

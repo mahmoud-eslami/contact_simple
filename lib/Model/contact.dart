@@ -22,6 +22,11 @@ class Contacts extends ChangeNotifier {
     notifyListeners();
   }
 
+  void removeFav(int index){
+    favorites()[index].isFav = false;
+    notifyListeners();
+  }
+
 //  void addFavorite() {
 //    for (int i = 0; i < itemList.length; i++) {
 //      if (itemList[i].isFav == true) {

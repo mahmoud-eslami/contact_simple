@@ -38,6 +38,7 @@ class Add extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              SizedBox(height: 100,),
               Theme(
                 data: ThemeData(primaryColor: Colors.black),
                 child: TextFormField(
@@ -88,7 +89,7 @@ class Add extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 100,
               ),
               ButtonTheme(
                 height: 50,
