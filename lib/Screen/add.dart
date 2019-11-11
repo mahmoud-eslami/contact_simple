@@ -6,12 +6,11 @@ final _formKey = GlobalKey<FormState>();
 
 class Add extends StatelessWidget {
 
-  final TextEditingController  name_controller = new TextEditingController();
-  final TextEditingController  phone_controller = new TextEditingController();
+  var name_controller = new TextEditingController();
+  var phone_controller = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     var item_provider = Provider.of<Contacts>(context);
 
     return Scaffold(
@@ -40,7 +39,9 @@ class Add extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: 100,),
+              SizedBox(
+                height: 100,
+              ),
               Theme(
                 data: ThemeData(primaryColor: Colors.black),
                 child: TextFormField(
@@ -109,9 +110,12 @@ class Add extends StatelessWidget {
                   color: Colors.black,
                   onPressed: () {
                     if (_formKey.currentState.validate()) {
-                    _formKey.currentState.save();
-                    Item _item = new Item(name: name_controller.text, phone: phone_controller.text, isFav: false);
-                    item_provider.addContact(_item);
+                      _formKey.currentState.save();
+                      Item _item = new Item(
+                          name: name_controller.text,
+                          phone: phone_controller.text,
+                          isFav: false);
+                      item_provider.addContact(_item);
                       Navigator.of(context).pop();
                     }
                   },
