@@ -54,7 +54,7 @@ class Favorite extends StatelessWidget {
               child: Center(
                 child: Text(
                   'Count of Contact : ' + item_provider.favorites().length.toString(),
-                  style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white),
+                  style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300,color: Colors.white),
                 ),
               )
           ),
