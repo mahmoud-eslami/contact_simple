@@ -38,5 +38,4 @@ class Contacts extends ChangeNotifier {
       },
     ).toList();
   }
-
 }
