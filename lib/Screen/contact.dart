@@ -12,7 +12,7 @@ class Contact extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.teal,
         title: Text(
           'Contacts',
           style: TextStyle(color: Colors.black),

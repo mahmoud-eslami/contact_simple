@@ -5,11 +5,13 @@ import 'package:contact_simple/Model/contact.dart';
 final _formKey = GlobalKey<FormState>();
 
 class Add extends StatelessWidget {
+
   var name_controller = TextEditingController();
   var phone_controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
     var item_provider = Provider.of<Contacts>(context);
 
     return Scaffold(
