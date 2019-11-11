@@ -7,20 +7,21 @@ import 'package:provider/provider.dart';
 class Contact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     var item_provider = Provider.of<Contacts>(context);
 
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.indigo,
         title: Text(
           'Contacts',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           icon: Icon(
             Icons.favorite,
-            color: Colors.black,
+            color: Colors.redAccent,
           ),
           onPressed: () {
             Navigator.push(
@@ -29,16 +30,15 @@ class Contact extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.yellow,
-        hoverColor: Colors.black,
+        backgroundColor: Colors.indigoAccent,
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Add()));
         },
         tooltip: 'Add Contact',
         child: Icon(
-          Icons.add,
-          color: Colors.black,
+          Icons.account_box,
+          color: Colors.white,
         ),
       ),
       body: ListView.builder(

@@ -13,15 +13,15 @@ class Favorite extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.indigo,
         title: Text(
           'Favorite Contact',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: Colors.white,
           ),
           onPressed: () {
             Navigator.push(
@@ -50,11 +50,11 @@ class Favorite extends StatelessWidget {
           ),
           Container(
             height: 60,
-            color: Colors.yellow,
+            color: Colors.indigoAccent,
               child: Center(
                 child: Text(
                   'Count of Contact : ' + item_provider.favorites().length.toString(),
-                  style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white),
                 ),
               )
           ),

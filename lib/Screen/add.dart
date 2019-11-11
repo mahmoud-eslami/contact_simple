@@ -15,7 +15,7 @@ class Add extends StatelessWidget {
     var item_provider = Provider.of<Contacts>(context);
 
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
@@ -45,6 +45,7 @@ class Add extends StatelessWidget {
                 data: ThemeData(primaryColor: Colors.black),
                 child: TextFormField(
                   controller: name_controller,
+                  cursorColor: Colors.black,
                   decoration: InputDecoration(
                       labelText: 'Name',
                       labelStyle: TextStyle(color: Colors.black),
@@ -71,6 +72,7 @@ class Add extends StatelessWidget {
                 data: ThemeData(primaryColor: Colors.black),
                 child: TextFormField(
                   controller: phone_controller,
+                  cursorColor: Colors.black,
                   decoration: InputDecoration(
                       labelText: 'Phone',
                       labelStyle: TextStyle(color: Colors.black),
@@ -91,7 +93,7 @@ class Add extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 100,
+                height: 60,
               ),
               ButtonTheme(
                 height: 50,
