@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 class Favorite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+
     var item_provider = Provider.of<Contacts>(context);
 
     return Scaffold(
