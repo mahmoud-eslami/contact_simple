@@ -6,12 +6,13 @@ final _formKey = GlobalKey<FormState>();
 
 class Add extends StatelessWidget {
 
-  var name_controller = new TextEditingController();
-  var phone_controller = new TextEditingController();
+  TextEditingController nameController = new TextEditingController();
+  TextEditingController phoneController = new TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
-    var item_provider = Provider.of<Contacts>(context);
+    var itemProvider = Provider.of<Contacts>(context);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -45,7 +46,7 @@ class Add extends StatelessWidget {
               Theme(
                 data: ThemeData(primaryColor: Colors.black),
                 child: TextFormField(
-                  controller: name_controller,
+                  controller: nameController,
                   cursorColor: Colors.black,
                   decoration: InputDecoration(
                       labelText: 'Name',
@@ -72,7 +73,7 @@ class Add extends StatelessWidget {
               Theme(
                 data: ThemeData(primaryColor: Colors.black),
                 child: TextFormField(
-                  controller: phone_controller,
+                  controller: phoneController,
                   cursorColor: Colors.black,
                   decoration: InputDecoration(
                       labelText: 'Phone',
@@ -111,11 +112,8 @@ class Add extends StatelessWidget {
                   onPressed: () {
                     if (_formKey.currentState.validate()) {
                       _formKey.currentState.save();
-                      Item _item = new Item(
-                          name: name_controller.text,
-                          phone: phone_controller.text,
-                          isFav: false);
-                      item_provider.addContact(_item);
+                      Item i = new Item(name: nameController.text, phone: phoneController.text, isFav: false);
+                      itemProvider.addContact(i);
                       Navigator.of(context).pop();
                     }
                   },
