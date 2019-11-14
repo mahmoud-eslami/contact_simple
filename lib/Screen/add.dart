@@ -12,7 +12,7 @@ class Add extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var itemProvider = Provider.of<Contacts>(context);
+    var itemProvider = Provider.of<Contacts>(context,listen: false);
 
     return Scaffold(
       backgroundColor: Colors.white,
