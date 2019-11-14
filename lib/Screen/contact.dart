@@ -8,63 +8,66 @@ class Contact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    var itemProvider = Provider.of<Contacts>(context);
+
+//    var _itemProvider = Provider.of<Contacts>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.indigo,
-        title: Text(
-          'Contact',
-          style: TextStyle(color: Colors.white),
-        ),
-        leading: IconButton(
-          icon: Icon(
-            Icons.favorite,
-            color: Colors.redAccent,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.indigo,
+          title: Text(
+            'Contact',
+            style: TextStyle(color: Colors.white),
           ),
+          leading: IconButton(
+            icon: Icon(
+              Icons.favorite,
+              color: Colors.redAccent,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Favorite()));
+            },
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.indigoAccent,
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Favorite()));
+                context, MaterialPageRoute(builder: (context) => Add()));
           },
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.indigoAccent,
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Add()));
-        },
-        tooltip: 'Add Contact',
-        child: Icon(
-          Icons.account_box,
-          color: Colors.white,
-        ),
-      ),
-      body: ListView.builder(
-        itemBuilder: (context, index) => ListTile(
-          title: Text(itemProvider.itemList[index].name),
-          subtitle: Text(itemProvider.itemList[index].phone),
-          leading: CircleAvatar(
-            backgroundColor: Colors.primaries[index],
+          tooltip: 'Add Contact',
+          child: Icon(
+            Icons.account_box,
+            color: Colors.white,
           ),
-          trailing: IconButton(
-              icon: itemProvider.itemList[index].isFav
-                  ? Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                    )
-                  : Icon(Icons.favorite_border, color: Colors.black),
-              onPressed: () {
-                  itemProvider.changeFavState(index);
-              }),
         ),
-        itemCount: itemProvider.itemList.length,
-      ),
-    );
+        body: Consumer<Contacts>(
+          builder: (context, itemProvider, child) {
+            return ListView.builder(
+              itemBuilder: (context, index) => ListTile(
+                title: Text(itemProvider.itemList[index].name),
+                subtitle: Text(itemProvider.itemList[index].phone),
+                leading: CircleAvatar(
+                  backgroundColor: Colors.primaries[index],
+                ),
+                trailing: IconButton(
+                    icon: itemProvider.itemList[index].isFav
+                        ? Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                          )
+                        : Icon(Icons.favorite_border, color: Colors.black),
+                    onPressed: () {
+                      itemProvider.changeFavState(index);
+                    }),
+              ),
+              itemCount: itemProvider.itemList.length,
+            );
+          },
+        ));
   }
 }
-
 
 /**
  *
