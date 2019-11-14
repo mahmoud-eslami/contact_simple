@@ -8,7 +8,7 @@ class Favorite extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-    var item_provider = Provider.of<Contacts>(context);
+    var itemProvider = Provider.of<Contacts>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -36,16 +36,16 @@ class Favorite extends StatelessWidget {
             height: 452,
             child: ListView.builder(
               itemBuilder: (context, index) => ListTile(
-                title: Text(item_provider.favorites()[index].name),
-                subtitle: Text(item_provider.favorites()[index].phone),
+                title: Text(itemProvider.favorites()[index].name),
+                subtitle: Text(itemProvider.favorites()[index].phone),
                 leading: CircleAvatar(
                   backgroundColor: Colors.primaries[index],
                 ),
                 trailing: IconButton(icon: Icon(Icons.close,color: Colors.black,), onPressed: (){
-                  item_provider.removeFav(index);
+                  itemProvider.removeFav(index);
                 }),
               ),
-              itemCount: item_provider.favorites().length,
+              itemCount: itemProvider.favorites().length,
             ),
           ),
           Container(
@@ -53,7 +53,7 @@ class Favorite extends StatelessWidget {
             color: Colors.indigoAccent,
               child: Center(
                 child: Text(
-                  'Count of Contact : ' + item_provider.favorites().length.toString(),
+                  'Count of Contact : ' + itemProvider.favorites().length.toString(),
                   style: TextStyle(fontSize: 15,fontWeight: FontWeight.w300,color: Colors.white),
                 ),
               )

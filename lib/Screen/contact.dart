@@ -8,7 +8,7 @@ class Contact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    var item_provider = Provider.of<Contacts>(context);
+    var itemProvider = Provider.of<Contacts>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -43,23 +43,23 @@ class Contact extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) => ListTile(
-          title: Text(item_provider.itemList[index].name),
-          subtitle: Text(item_provider.itemList[index].phone),
+          title: Text(itemProvider.itemList[index].name),
+          subtitle: Text(itemProvider.itemList[index].phone),
           leading: CircleAvatar(
             backgroundColor: Colors.primaries[index],
           ),
           trailing: IconButton(
-              icon: item_provider.itemList[index].isFav
+              icon: itemProvider.itemList[index].isFav
                   ? Icon(
                       Icons.favorite,
                       color: Colors.red,
                     )
                   : Icon(Icons.favorite_border, color: Colors.black),
               onPressed: () {
-                  item_provider.changeFavState(index);
+                  itemProvider.changeFavState(index);
               }),
         ),
-        itemCount: item_provider.itemList.length,
+        itemCount: itemProvider.itemList.length,
       ),
     );
   }
