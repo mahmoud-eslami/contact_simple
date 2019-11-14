@@ -15,7 +15,7 @@ class Contact extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.indigo,
         title: Text(
-          'Contact',
+          'Contacts',
           style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
