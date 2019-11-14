@@ -6,8 +6,8 @@ final _formKey = GlobalKey<FormState>();
 
 class Add extends StatelessWidget {
 
-  TextEditingController nameController = new TextEditingController();
-  TextEditingController phoneController = new TextEditingController();
+  final TextEditingController nameController = new TextEditingController();
+  final TextEditingController phoneController = new TextEditingController();
 
 
   @override
