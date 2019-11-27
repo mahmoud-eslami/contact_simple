@@ -46,15 +46,17 @@ class Favorite extends StatelessWidget {
               itemCount: itemProvider.favorites().length,
             ),
           ),
-          Container(
-            height: 50,
-            color: Colors.indigoAccent,
-              child: Center(
-                child: Text(
-                  'Count of Contact : ' + itemProvider.favorites().length.toString(),
-                  style: TextStyle(fontSize: 15,fontWeight: FontWeight.w300,color: Colors.white),
-                ),
-              )
+          Expanded(
+            child: Container(
+              height: 50,
+              color: Colors.indigoAccent,
+                child: Center(
+                  child: Text(
+                    'Count of Contact : ' + itemProvider.favorites().length.toString(),
+                    style: TextStyle(fontSize: 15,fontWeight: FontWeight.w300,color: Colors.white),
+                  ),
+                )
+            ),
           ),
         ],
       ),
