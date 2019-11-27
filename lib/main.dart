@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<Contacts>(
       builder: (context) => Contacts(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Contact',
         home: Contact(),
       ),

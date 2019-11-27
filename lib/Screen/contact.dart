@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Contact extends StatelessWidget {
+
+
+
   @override
   Widget build(BuildContext context) {
-
-
 //    var _itemProvider = Provider.of<Contacts>(context);
 
     return Scaffold(
@@ -19,16 +20,18 @@ class Contact extends StatelessWidget {
             'Contact',
             style: TextStyle(color: Colors.white),
           ),
-          leading: IconButton(
-            icon: Icon(
-              Icons.favorite,
-              color: Colors.redAccent,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.bookmark,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Favorite()));
+              },
             ),
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Favorite()));
-            },
-          ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.indigoAccent,
@@ -49,6 +52,12 @@ class Contact extends StatelessWidget {
                 title: Text(itemProvider.itemList[index].name),
                 subtitle: Text(itemProvider.itemList[index].phone),
                 leading: CircleAvatar(
+                  child: Text(
+                    itemProvider.itemList[index].name
+                        .substring(0, 1)
+                        .toUpperCase(),
+                    style: TextStyle(color: Colors.white),
+                  ),
                   backgroundColor: Colors.primaries[index],
                 ),
                 trailing: IconButton(

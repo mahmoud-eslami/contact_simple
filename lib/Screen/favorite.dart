@@ -24,9 +24,7 @@ class Favorite extends StatelessWidget {
             color: Colors.white,
           ),
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Contact()));
-//            Navigator.of(context).pop();
+            Navigator.of(context).pop();
           },
         ),
       ),
