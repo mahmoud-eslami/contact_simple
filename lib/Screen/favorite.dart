@@ -31,7 +31,7 @@ class Favorite extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Container(
-            height: 452,
+            height: 500,
             child: ListView.builder(
               itemBuilder: (context, index) => ListTile(
                 title: Text(itemProvider.favorites()[index].name),
@@ -47,7 +47,7 @@ class Favorite extends StatelessWidget {
             ),
           ),
           Container(
-            height: 60,
+            height: 50,
             color: Colors.indigoAccent,
               child: Center(
                 child: Text(

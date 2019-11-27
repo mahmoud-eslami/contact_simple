@@ -33,93 +33,95 @@ class Add extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: Form(
-        key: _formKey,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 100,
-              ),
-              Theme(
-                data: ThemeData(primaryColor: Colors.black),
-                child: TextFormField(
-                  controller: nameController,
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                      labelText: 'Name',
-                      labelStyle: TextStyle(color: Colors.black),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.account_circle,
-                        color: Colors.black,
-                      )),
-                  validator: (val) {
-                    if (val.isEmpty) {
-                      return 'Enter Your Name';
-                    } else {
-                      return null;
-                    }
-                  },
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 100,
                 ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Theme(
-                data: ThemeData(primaryColor: Colors.black),
-                child: TextFormField(
-                  controller: phoneController,
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                      labelText: 'Phone',
-                      labelStyle: TextStyle(color: Colors.black),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.phone,
-                        color: Colors.black,
-                      )),
-                  validator: (val) {
-                    if (val.isEmpty) {
-                      return 'Enter your phone Number';
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-              ),
-              SizedBox(
-                height: 60,
-              ),
-              ButtonTheme(
-                height: 50,
-                minWidth: 150,
-                child: RaisedButton(
-                  child: Text(
-                    'Submit',
-                    style: TextStyle(color: Colors.white),
+                Theme(
+                  data: ThemeData(primaryColor: Colors.black),
+                  child: TextFormField(
+                    controller: nameController,
+                    cursorColor: Colors.black,
+                    decoration: InputDecoration(
+                        labelText: 'Name',
+                        labelStyle: TextStyle(color: Colors.black),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.account_circle,
+                          color: Colors.black,
+                        )),
+                    validator: (val) {
+                      if (val.isEmpty) {
+                        return 'Enter Your Name';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  color: Colors.black,
-                  onPressed: () {
-                    if (_formKey.currentState.validate()) {
-                      _formKey.currentState.save();
-                      Item i = new Item(name: nameController.text, phone: phoneController.text, isFav: false);
-                      itemProvider.addContact(i);
-                      Navigator.of(context).pop();
-                    }
-                  },
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 15,
+                ),
+                Theme(
+                  data: ThemeData(primaryColor: Colors.black),
+                  child: TextFormField(
+                    controller: phoneController,
+                    cursorColor: Colors.black,
+                    decoration: InputDecoration(
+                        labelText: 'Phone',
+                        labelStyle: TextStyle(color: Colors.black),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.phone,
+                          color: Colors.black,
+                        )),
+                    validator: (val) {
+                      if (val.isEmpty) {
+                        return 'Enter your phone Number';
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 60,
+                ),
+                ButtonTheme(
+                  height: 50,
+                  minWidth: 150,
+                  child: RaisedButton(
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    color: Colors.black,
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        _formKey.currentState.save();
+                        Item i = new Item(name: nameController.text, phone: phoneController.text, isFav: false);
+                        itemProvider.addContact(i);
+                        Navigator.of(context).pop();
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
