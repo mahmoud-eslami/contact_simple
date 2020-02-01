@@ -5,6 +5,19 @@ class Item {
   bool isFav;
 
   Item({@required this.name, @required this.phone, @required this.isFav});
+
+  Item.fromDb(Map<String, dynamic> map)
+      : name = map['name'],
+        phone = map['phone'],
+        isFav = map['is_fav'] == 0;
+
+  Map<String, dynamic> toMapForDb() {
+    var map = Map<String , dynamic>();
+    map['name'] = name;
+    map['phone'] = phone;
+    map['is_fav'] = isFav ? 1 : 0 ;
+    return map;
+  }
 }
 
 class Contacts extends ChangeNotifier {
@@ -22,7 +35,7 @@ class Contacts extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeFav(int index){
+  void removeFav(int index) {
     favorites()[index].isFav = false;
     notifyListeners();
   }
@@ -38,7 +51,7 @@ class Contacts extends ChangeNotifier {
 
   List<Item> favorites() {
     return itemList.where(
-      (item) {
+          (item) {
         return item.isFav;
       },
     ).toList();
